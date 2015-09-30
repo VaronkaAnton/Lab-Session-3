@@ -3,7 +3,7 @@
 using namespace std;
 int matr(int n,int m, int q, int A[], int B[])
 {
-	int  i, j,u,y;
+	int  i, j,u;
 	int **Matryca1 = new int *[m];
 	for (i = 0; i < m; i++)
 		Matryca1[i] = new int[n];
@@ -11,9 +11,11 @@ int matr(int n,int m, int q, int A[], int B[])
 	{
 		for (j = 0; j < n; j++)
 		{
-			u = j;
-					cout << "Arrays elements of matrix A ";
-					Matryca1[i][j] = A[u];
+			for (u = 0; u < n*m; u++)
+			{
+				cout << "Arrays elements of matrix A ";
+				Matryca1[i][j] = A[u];
+			}
 		}
 	}
 	cout << "Matrix A: " << endl;
@@ -30,9 +32,11 @@ int matr(int n,int m, int q, int A[], int B[])
 	{
 		for (j = 0; j < q; j++)
 		{
-			y = j;
-					cout << "Arrays elements of matrix B ";
-					Matryca2[i][j] = A[y];
+			for (u = 0; u < n*q; u++)
+			{
+				cout << "Arrays elements of matrix B ";
+				Matryca2[i][j] = B[u];
+			}
 		}
 	}
 	cout << "Matrix B: " << endl;
@@ -66,18 +70,18 @@ int main()
 	int n, m, q;
 	cout << "Enter amount of columns in Matryca1 and rows in Matryca2:\n ";
 	cin >> n;
-	cout << "Enter amount of rows:\n ";
+	cout << "Enter amount of rows in  Matryca1:\n ";
 	cin >> m;
-	cout << "Enter amount of columns:\n ";
+	cout << "Enter amount of columns in Matryca2:\n ";
 	cin >> q;
 	int *A; 
 	int a;
 	int *B; 
 	int b;
-	cout << "Enter amount of array A:\n ";
-	cin >> a;
-	cout << "Enter amount of array B:\n ";
-	cin >> b;
+	cout << "Amount of array A = \n ";
+	a = n*m;
+	cout << "Amount of array B = \n ";
+	b = n*q;
 	A = new int[a];
 	B = new int[b];
 	cout << "Enter elements of Array A ";
