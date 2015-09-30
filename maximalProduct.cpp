@@ -3,22 +3,31 @@
 using namespace std;
 
 void bubble(int *array, int size);
-void maximalProduct(int *array, int size);
+int* maximalProduct(int *array, int size);
 
 int main()
 {
 	return(0);
 }
 
-void maximalProduct(int *array, int size)
+int* maximalProduct(int *array, int size)
 {
+	int* result;
+	result = new int;
 	/*сортируем пузырьком и сравниваем произведение трёх наибольших с произведением
 	двух наименьших на наибольшее (остальные заведомо меньше)*/
 	bubble(array, size);
 	if (*(array + size - 1) * *(array + size - 2) * *(array + size - 3) >= *array * *(array + 1) * *(array + size - 1))
-		cout << *(array + size - 1) << " " << *(array + size - 2) << " " << *(array + size - 3) << endl;
+		for (int i = 0; i < 3; i++)
+			*(result + i) = *(array + size - 1 - i);
 	else
-		cout << *array << " " << *(array + 1) << " " << *(array + size - 1) << endl;
+	{
+		for (int i = 0; i < 2; i++)
+			*(result + i) = *(array + i);
+		*(result + 2) = *(array + size - 1);
+	}
+		return result;
+		delete[]result;
 }
 
 //сортировка пузырьком
