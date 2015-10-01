@@ -7,7 +7,7 @@ int* maximalProduct(int *array, int size);
 
 int main()
 {
-	return(0);
+	return(0); 
 }
 
 int* maximalProduct(int *array, int size)
@@ -26,6 +26,7 @@ int* maximalProduct(int *array, int size)
 			*(result + i) = *(array + i);
 		*(result + 2) = *(array + size - 1);
 	}
+	bubble(result, 3);
 		return result;
 		delete[]result;
 }
