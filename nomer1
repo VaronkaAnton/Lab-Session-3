@@ -1,9 +1,9 @@
 #include<iostream>
 #include<iomanip>
 using namespace std;
-int matr(int n,int m, int q, int A[], int B[])
+int **matr(int n, int m, int q, int A[], int B[])
 {
-	int  i, j,u;
+	int  i, j, u;
 	int **Matryca1 = new int *[m];
 	for (i = 0; i < m; i++)
 		Matryca1[i] = new int[n];
@@ -13,17 +13,9 @@ int matr(int n,int m, int q, int A[], int B[])
 		{
 			for (u = 0; u < n*m; u++)
 			{
-				cout << "Arrays elements of matrix A ";
 				Matryca1[i][j] = A[u];
 			}
 		}
-	}
-	cout << "Matrix A: " << endl;
-	for (i = 0; i < m; i++)
-	{
-		for (j = 0; j < n; j++)
-			cout << setw(5) << Matryca1[i][j];
-		cout << endl;
 	}
 	int **Matryca2 = new int *[n];
 	for (i = 0; i < n; i++)
@@ -34,68 +26,22 @@ int matr(int n,int m, int q, int A[], int B[])
 		{
 			for (u = 0; u < n*q; u++)
 			{
-				cout << "Arrays elements of matrix B ";
 				Matryca2[i][j] = B[u];
 			}
 		}
 	}
-	cout << "Matrix B: " << endl;
-	for (i = 0; i < n; i++)
-	{
-		for (j = 0; j < q; j++)
-			cout << setw(5) << Matryca2[i][j];
-		cout << endl;
-	}
-	int **cArr = new int *[i];
+	int **Matryca3 = new int *[i];
 	for (i = 0; i < m; i++)
-		cArr[i] = new int[j];
+		Matryca3[i] = new int[j];
 	for (i = 0; i < m; i++)
 		for (j = 0; j < q; j++)
 		{
-			cArr[i][j] = 0;
+			Matryca3[i][j] = 0;
 			for (int k = 0; k < q; k++)
-				cArr[i][j] += (Matryca1[i][k] * Matryca2[k][j]);
+				Matryca3[i][j] += (Matryca1[i][k] * Matryca2[k][j]);
+			return Matryca3;
 		}
-	cout << "Matrix C: " << endl;
-	for (i = 0; i < m; i++)
-	{
-		for (j = 0; j < q; j++)
-			cout << setw(5) << cArr[i][j];
-		cout << endl;
-	}
-	return 0;
 }
 int main()
 {
-	int n, m, q;
-	cout << "Enter amount of columns in Matryca1 and rows in Matryca2:\n ";
-	cin >> n;
-	cout << "Enter amount of rows in  Matryca1:\n ";
-	cin >> m;
-	cout << "Enter amount of columns in Matryca2:\n ";
-	cin >> q;
-	int *A; 
-	int a;
-	int *B; 
-	int b;
-	cout << "Amount of array A = \n ";
-	a = n*m;
-	cout << "Amount of array B = \n ";
-	b = n*q;
-	A = new int[a];
-	B = new int[b];
-	cout << "Enter elements of Array A ";
-	for (int i = 0; i < a; i++)
-	{
-		cout << "\n ";
-		cin >> A[i];
-	}
-	cout << "Enter elements of Array B ";
-	for (int i = 0; i < b; i++)
-	{
-		cout << "\n ";
-		cin >> B[i];
-	}
-	    cout << "Final Matryx:\n ";
-		cout << matr(n, m, q, A, B) << endl;
-	}
+}
