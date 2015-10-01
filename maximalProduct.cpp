@@ -4,18 +4,43 @@ using namespace std;
 
 void bubble(int *array, int size);
 int* maximalProduct(int *array, int size);
+void assert(int A[], int size, int *result)
+{
+
+		if (*maximalProduct(A, size) == *result)
+		{
+			cout << "OK" << endl;
+		}
+		else
+		{
+			cout << "FAIL; " << endl;
+		}
+
+}
 
 int main()
 {
-	return(0); 
+	int A[4] = { 1,2,3,4 };
+	int A1[3] = { 2,3,4 };
+	int B[4]={ 2, 4, 6, 5 };
+	int B1[3] = {4, 6, 5 };
+	int C[6]={ 1, 2, 3, -1, -2, -3 };
+	int C1[3] = { -3, -2, 3 };
+	int D[4] = { 5, 10, 15, 20 };
+	int D1[3] = {10, 15, 20 };
+	assert(A, 4, A1);
+	assert(B, 4, B1);
+	assert(C, 6, C1);
+	assert(D, 4, D1);
+	return 0;
 }
 
 int* maximalProduct(int *array, int size)
 {
 	int* result;
 	result = new int;
-	/*ñîðòèðóåì ïóçûðüêîì è ñðàâíèâàåì ïðîèçâåäåíèå òð¸õ íàèáîëüøèõ ñ ïðîèçâåäåíèåì
-	äâóõ íàèìåíüøèõ íà íàèáîëüøåå (îñòàëüíûå çàâåäîìî ìåíüøå)*/
+	/*ÑÐ¾Ñ€Ñ‚Ð¸Ñ€ÑƒÐµÐ¼ Ð¿ÑƒÐ·Ñ‹Ñ€ÑŒÐºÐ¾Ð¼ Ð¸ ÑÑ€Ð°Ð²Ð½Ð¸Ð²Ð°ÐµÐ¼ Ð¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÐ´ÐµÐ½Ð¸Ðµ Ñ‚Ñ€Ñ‘Ñ… Ð½Ð°Ð¸Ð±Ð¾Ð»ÑŒÑˆÐ¸Ñ… Ñ Ð¿Ñ€Ð¾Ð¸Ð·Ð²ÐµÐ´ÐµÐ½Ð¸ÐµÐ¼
+	Ð´Ð²ÑƒÑ… Ð½Ð°Ð¸Ð¼ÐµÐ½ÑŒÑˆÐ¸Ñ… Ð½Ð° Ð½Ð°Ð¸Ð±Ð¾Ð»ÑŒÑˆÐµÐµ (Ð¾ÑÑ‚Ð°Ð»ÑŒÐ½Ñ‹Ðµ Ð·Ð°Ð²ÐµÐ´Ð¾Ð¼Ð¾ Ð¼ÐµÐ½ÑŒÑˆÐµ)*/
 	bubble(array, size);
 	if (*(array + size - 1) * *(array + size - 2) * *(array + size - 3) >= *array * *(array + 1) * *(array + size - 1))
 		for (int i = 0; i < 3; i++)
@@ -27,11 +52,11 @@ int* maximalProduct(int *array, int size)
 		*(result + 2) = *(array + size - 1);
 	}
 	bubble(result, 3);
-		return result;
-		delete[]result;
+	return result;
+	delete[]result;
 }
 
-//ñîðòèðîâêà ïóçûðüêîì
+//ÑÐ¾Ñ€Ñ‚Ð¸Ñ€Ð¾Ð²ÐºÐ° Ð¿ÑƒÐ·Ñ‹Ñ€ÑŒÐºÐ¾Ð¼
 void bubble(int *array, int size)
 {
 	for (int i = 0; i < size - 1; i++)
