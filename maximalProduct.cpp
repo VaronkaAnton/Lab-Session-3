@@ -4,34 +4,26 @@ using namespace std;
 
 void bubble(int *array, int size);
 int* maximalProduct(int *array, int size);
-void assert(int A[], int size, int *result)
+void assert(int* a, int size, int* test)
 {
-
-		if (*maximalProduct(A, size) == *result)
-		{
-			cout << "OK" << endl;
-		}
-		else
-		{
-			cout << "FAIL; " << endl;
-		}
-
+	int* r;
+	r = maximalProduct(a, size);
+	if (r[0] * r[1] * r[2] == test[0] * test[1] * test[2]) {
+		cout << "OK" << endl;
+	}
+	else { cout << "FAIL" << endl; }
 }
-
 int main()
 {
-	int A[4] = { 1,2,3,4 };
-	int A1[3] = { 2,3,4 };
-	int B[4]={ 2, 4, 6, 5 };
-	int B1[3] = {4, 6, 5 };
-	int C[6]={ 1, 2, 3, -1, -2, -3 };
-	int C1[3] = { -3, -2, 3 };
-	int D[4] = { 5, 10, 15, 20 };
-	int D1[3] = {10, 15, 20 };
-	assert(A, 4, A1);
-	assert(B, 4, B1);
-	assert(C, 6, C1);
-	assert(D, 4, D1);
+	int a[7] = { 1,2,3,4,5,6,7 };
+	int test1[3] = { 5,6,7 };
+	assert(a, 7, test1);
+	int a1[7] = { 1,2,3,4,5,-6,-7 };
+	int test2[3] = { -7,-6,5 };
+	assert(a1, 7, test2);
+	int a3[9] = { 1,2,3,2,3,2,4,2,1 };
+	int test3[3] = { 3,3,4 };
+	assert(a3, 9, test3);
 	return 0;
 }
 
