@@ -64,15 +64,15 @@ void assert(int** matrix, int** result, int m, int n)
 
 int main()
 {
-
+	
 	//тест первый
-	int matrix1[4];
-	int matrix2[4];
+	int matrix1 [4];
+	int matrix2 [4];
 	for (int i = 0; i < 4; i++)
-		matrix1[i] = 2;
+		matrix1 [i] = 2;
 	for (int i = 0; i < 4; i++)
-		matrix2[i] = 1;
-
+		matrix2 [i] = 1;
+	
 	int** result1 = matr(2, 2, 2, matrix1, matrix2);
 	int** product1;
 	product1 = new int*[2];
@@ -84,41 +84,33 @@ int main()
 	product1[1][1] = 4;
 
 	assert(result1, product1, 2, 2);
-
+	
 	//тест второй
-	int matrix3[6];
+	int matrix3 [6];
 	for (int i = 0; i < 6; i++)
 		matrix3[i] = 2;
 
-	int matrix4[8];
-	for (int i = 0; i < 8; i++)
+	int matrix4 [6];
+	for (int i = 0; i < 6; i++)
 		matrix4[i] = 1;
 
-	int** result2 = matr(3, 2, 4, matrix3, matrix4);
-	int** product2;
-	product2 = new int*[3];
-	product2[0] = new int[4];
-	product2[0][0] = 4;
-	product2[0][1] = 4;
-	product2[0][2] = 4;
-	product2[0][3] = 4;
-	product2[1] = new int[4];
-	product2[1][0] = 4;
-	product2[1][1] = 4;
-	product2[1][2] = 4;
-	product2[1][3] = 4;
-	product2[2] = new int[4];
-	product2[2][0] = 4;
-	product2[2][1] = 4;
-	product2[2][2] = 4;
-	product2[2][3] = 4;
+	int** result2 = matr(3, 2, 2, matrix3, matrix4);
+	int **product2;
+	product2 = new int*[2];
+	product2[0] = new int[2];
+	product2[0][0] = 6;
+	product2[0][1] = 6;
+	product2[1] = new int[2];
+	product2[1][0] = 6;
+	product2[1][1] = 6;
+
+	assert(result2, product2, 2, 2);
+	
 
 
-	assert(result2, product2, 3, 4);
-
-
+	
 	//тест третий
-	int matrix5[6];
+	int matrix5 [6];
 	matrix5[0] = 3;
 	matrix5[1] = 8;
 	matrix5[2] = 5;
@@ -126,7 +118,7 @@ int main()
 	matrix5[4] = 2;
 	matrix5[5] = 1;
 
-	int matrix6[8];
+	int matrix6 [8];
 
 	matrix6[0] = 1;
 	matrix6[1] = 2;
@@ -136,9 +128,9 @@ int main()
 	matrix6[5] = 3;
 	matrix6[6] = 2;
 	matrix6[7] = 1;
+	
 
-
-	int** result3 = matr(3, 2, 4, matrix5, matrix6);
+	int** result3 = matr(2, 3, 4, matrix5, matrix6);
 	int** product3;
 	product3 = new int*[3];
 	product3[0] = new int[4];
