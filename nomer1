@@ -30,13 +30,6 @@ int **matr(int n, int m, int q, int A[], int B[])
 			}
 		}
 	}
-	int** result;
-	result = new int*[m];
-	for (int i = 0; i < m; i++)
-	{
-		result[i] = new int[q];
-
-	}
 	int **Matryca3 = new int *[i];
 	for (i = 0; i < m; i++)
 		Matryca3[i] = new int[j];
@@ -48,10 +41,8 @@ int **matr(int n, int m, int q, int A[], int B[])
 			for (int k = 0; k < q; k++)
 				Matryca3[i][j] += (Matryca1[i][k] * Matryca2[k][j]);
 		}
-		result[i][j] = **Matryca3;
-		;
 	}
-return result;
+return Matryca3;
 }
 int main()
 {
