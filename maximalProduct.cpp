@@ -8,10 +8,15 @@ void assert(int* a, int size, int* test)
 {
 	int* r;
 	r = maximalProduct(a, size);
-	if (r[0] * r[1] * r[2] == test[0] * test[1] * test[2]) {
-		cout << "OK" << endl;
+	for (int i = 0; i < 3; i++)
+	{
+		if (r[i] == test[i])
+		{
+			cout << "OK" << endl;
+		}
+		else 
+		{ cout << "FAIL" << endl; }
 	}
-	else { cout << "FAIL" << endl; }
 }
 int main()
 {
@@ -24,7 +29,6 @@ int main()
 	int a3[9] = { 1,2,3,2,3,2,4,2,1 };
 	int test3[3] = { 3,3,4 };
 	assert(a3, 9, test3);
-	return 0;
 }
 
 int* maximalProduct(int *array, int size)
