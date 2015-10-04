@@ -3,7 +3,7 @@
 using namespace std;
 int **matr(int n, int m, int q, int A[], int B[])
 {
-	int  i, j, u;
+	int  i, j, u = 0;
 	int **Matryca1 = new int *[m];
 	for (i = 0; i < m; i++)
 		Matryca1[i] = new int[n];
@@ -11,12 +11,11 @@ int **matr(int n, int m, int q, int A[], int B[])
 	{
 		for (j = 0; j < n; j++)
 		{
-			for (u = 0; u < n*m; u++)
-			{
-				Matryca1[i][j] = A[u];
-			}
+			Matryca1[i][j] = A[u];
+			u++;
 		}
 	}
+	u = 0;
 	int **Matryca2 = new int *[n];
 	for (i = 0; i < n; i++)
 		Matryca2[i] = new int[q];
@@ -24,13 +23,11 @@ int **matr(int n, int m, int q, int A[], int B[])
 	{
 		for (j = 0; j < q; j++)
 		{
-			for (u = 0; u < n*q; u++)
-			{
-				Matryca2[i][j] = B[u];
-			}
+			Matryca2[i][j] = B[u];
+			u++;
 		}
 	}
-	int **Matryca3 = new int *[i];
+	int **Matryca3 = new int *[m];
 	for (i = 0; i < m; i++)
 		Matryca3[i] = new int[j];
 	for (i = 0; i < m; i++)
@@ -39,10 +36,12 @@ int **matr(int n, int m, int q, int A[], int B[])
 		{
 			Matryca3[i][j] = 0;
 			for (int k = 0; k < q; k++)
+			{
 				Matryca3[i][j] += (Matryca1[i][k] * Matryca2[k][j]);
+			}
 		}
 	}
-return Matryca3;
+	return Matryca3;
 }
 
 void assert(int** matrix, int** result, int m, int n)
@@ -65,15 +64,15 @@ void assert(int** matrix, int** result, int m, int n)
 
 int main()
 {
-	
+
 	//тест первый
-	int matrix1 [4];
-	int matrix2 [4];
+	int matrix1[4];
+	int matrix2[4];
 	for (int i = 0; i < 4; i++)
-		matrix1 [i] = 2;
+		matrix1[i] = 2;
 	for (int i = 0; i < 4; i++)
-		matrix2 [i] = 1;
-	
+		matrix2[i] = 1;
+
 	int** result1 = matr(2, 2, 2, matrix1, matrix2);
 	int** product1;
 	product1 = new int*[2];
@@ -87,11 +86,11 @@ int main()
 	assert(result1, product1, 2, 2);
 
 	//тест второй
-	int matrix3 [6];
+	int matrix3[6];
 	for (int i = 0; i < 6; i++)
 		matrix3[i] = 2;
 
-	int matrix4 [8];
+	int matrix4[8];
 	for (int i = 0; i < 8; i++)
 		matrix4[i] = 1;
 
@@ -119,7 +118,7 @@ int main()
 
 
 	//тест третий
-	int matrix5 [6];
+	int matrix5[6];
 	matrix5[0] = 3;
 	matrix5[1] = 8;
 	matrix5[2] = 5;
@@ -127,7 +126,7 @@ int main()
 	matrix5[4] = 2;
 	matrix5[5] = 1;
 
-	int matrix6 [8];
+	int matrix6[8];
 
 	matrix6[0] = 1;
 	matrix6[1] = 2;
@@ -137,7 +136,7 @@ int main()
 	matrix6[5] = 3;
 	matrix6[6] = 2;
 	matrix6[7] = 1;
-	
+
 
 	int** result3 = matr(3, 2, 4, matrix5, matrix6);
 	int** product3;
